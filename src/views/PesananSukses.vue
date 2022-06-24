@@ -7,7 +7,6 @@
           <img src="../assets/images/menunggu.png" width="300" />
           <h2><strong>Sukses!!</strong></h2>
           <h4>Pesanan Anda segera diproses <br> Selamat Menunggu</h4>
-          <!-- ini syaa era -->
         </div>
       </div>
     </div>
