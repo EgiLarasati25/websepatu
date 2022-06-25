@@ -1,19 +1,150 @@
 {
-  "posts": [
+  "best-products": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "kode": "K-01",
+      "nama": "Adidas Humanrace",
+      "harga": 1100000,
+      "is_ready": true,
+      "gambar": "adidas-humanrace.jpg"
+    },
+    {
+      "id": 2,
+      "kode": "K-02",
+      "nama": "Adidas Sporty",
+      "harga": 1200000,
+      "is_ready": true,
+      "gambar": "adidas-sporty.jpg"
+    },
+    {
+      "id": 3,
+      "kode": "K-03",
+      "nama": "Adidas Superstar",
+      "harga": 2200000,
+      "is_ready": true,
+      "gambar": "adidas-superstar.jpg"
     }
   ],
-  "comments": [
+  "products": [
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "kode": "K-01",
+      "nama": "Adidas Humanrace",
+      "harga": 1100000,
+      "is_ready": true,
+      "gambar": "adidas-humanrace.jpg"
+    },
+    {
+      "id": 2,
+      "kode": "K-02",
+      "nama": "Adidas Sporty",
+      "harga": 1200000,
+      "is_ready": true,
+      "gambar": "adidas-sporty.jpg"
+    },
+    {
+      "id": 3,
+      "kode": "K-03",
+      "nama": "Adidas Superstar",
+      "harga": 2200000,
+      "is_ready": true,
+      "gambar": "adidas-superstar.jpg"
+    },
+    {
+      "id": 4,
+      "kode": "K-04",
+      "nama": "Adidas",
+      "harga": 1400000,
+      "is_ready": true,
+      "gambar": "adidas.jpg"
+    },
+    {
+      "id": 5,
+      "kode": "K-05",
+      "nama": "Convers",
+      "harga": 1300000,
+      "is_ready": true,
+      "gambar": "convers.jpg"
+    },
+    {
+      "id": 6,
+      "kode": "K-06",
+      "nama": "Nike",
+      "harga": 1700000,
+      "is_ready": true,
+      "gambar": "nike.jpg"
+    },
+    {
+      "id": 7,
+      "kode": "K-07",
+      "nama": "NIke Fres Faom",
+      "harga": 1550000,
+      "is_ready": true,
+      "gambar": "nike-fres-faom.jpg"
+    },
+    {
+      "id": 8,
+      "kode": "K-08",
+      "nama": "Rebooks",
+      "harga": 1780000,
+      "is_ready": true,
+      "gambar": "rebooks.jpg"
+    },
+    {
+      "id": 9,
+      "kode": "K-09",
+      "nama": "Vans",
+      "harga": 1880000,
+      "is_ready": true,
+      "gambar": "vans.jpg"
     }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+  "keranjangs":[
+    {
+      "jumlah_pemesanan": "1",
+      "product": {
+        "id": 1,
+        "kode": "K-01",
+        "nama": "Adidas Humanrace",
+        "harga": 1100000,
+        "is_ready": true,
+        "gambar": "adidas-humanrace.jpg"
+      },
+      "id": 1
+    }
+  ],
+  "pesanans":[
+    {
+      "nama": "Afif",
+      "noId_pelanggan": "3",
+      "keranjangs": [
+        {
+          "jumlah_pemesanan": "1",
+          "keterangan": "",
+          "product": {
+            "id": 1,
+            "kode": "K-01",
+            "nama": "Adidas Humanrace",
+            "harga": 1100000,
+            "is_ready": true,
+            "gambar": "adidas-humanrace.jpg"
+          },
+          "id": 1
+        },
+        {
+        "jumlah_pemesanan": "1",
+        "products": {
+          "id": 2,
+          "kode": "K-02",
+          "nama": "Adidas Sporty",
+          "harga": 1200000,
+          "is_ready": true,
+          "gambar": "adidas-sporty.jpg"
+        },
+        "id": 2
+        }
+      ],
+      "id": 1
+    }
+  ]
 }

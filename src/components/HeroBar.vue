@@ -11,9 +11,9 @@
                 Exclusive
               </h2>
               <p>Ayo segera pilih dan pesan sepatu kesayangan anda</p>
-              <button class="btn btn-lg btn-succes">
+              <router-link class="btn btn-lg btn-succes" to="/barang">
                 <b-arrow-right></b-arrow-right>Pesan
-              </button>
+              </router-link>
             </div>
           </div>
         </div>

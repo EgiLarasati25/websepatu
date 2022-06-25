@@ -17,7 +17,7 @@ const routes = [
     component: BarangView
   },
   {
-    path: '/detail-barang',
+    path: '/barang/:id',
     name: 'detail-barang',
     component: DetailBarang
   },
