@@ -14,12 +14,12 @@
 </template>
 
 <script>
-import Navbar from "@/components/Navbar.vue";
+import NavBar from "@/components/NavBar.vue";
 
 export default {
   name: "PesananSukses",
   components: {
-    Navbar,
+    NavBar,
   },
 };
 </script>

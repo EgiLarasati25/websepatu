@@ -2,7 +2,7 @@
   <div>
     <b-navbar toggleable="lg" type="light">
       <div class="container">
-        <b-navbar-brand href="#">Shoes Sport</b-navbar-brand>
+        <b-navbar-brand href="#">ShoesSport</b-navbar-brand>
 
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -39,17 +39,18 @@
 
 <script>
 import axios from "axios";
+
 export default {
   name: "NavBar",
   data() {
     return {
-      jumlah_pesanan: [],
+      jumlah_pesanans: [],
     };
   },
   props: ["updateKeranjang"],
   methods: {
     setJumlah(data) {
-      this.jumlah_pesanan = data;
+      this.jumlah_pesanans = data;
     },
   },
   mounted() {

@@ -1,6 +1,6 @@
 <template>
   <div class="keranjang">
-    <NavBar :updateKeranjang="keranjang"/>
+    <NavBar :updateKeranjang="keranjang" />
     <div class="container">
       <!-- breadcrumb -->
       <div class="row mt-4">
@@ -39,10 +39,14 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="keranjang, index in keranjang" :key="keranjang.id">
+                <tr v-for="(keranjang, index) in keranjang" :key="keranjang.id">
                   <th>{{ index + 1 }}</th>
                   <td>
-                    <img :src="'../assets/image' + keranjang.products.gambar" class="img-field shadow" width="250" />
+                    <img
+                      :src="'../assets/image' + keranjang.products.gambar"
+                      class="img-field shadow"
+                      width="250"
+                    />
                   </td>
                   <td>
                     <strong>{{ keranjang.products.nama }}</strong>
@@ -52,10 +56,18 @@
                   </td>
                   <td>{{ keranjang.jumlah_pemesanan }}</td>
                   <td align="right">Rp. {{ keranjang.products.harga }}</td>
-                  <td align="right"><strong>Rp. {{ keranjang.products.harga * keranjang.jumlah_pemesanan }}</strong>
+                  <td align="right">
+                    <strong
+                      >Rp.
+                      {{
+                        keranjang.products.harga * keranjang.jumlah_pemesanan
+                      }}</strong
+                    >
                   </td>
                   <td align="center" class="text-danger">
-                    <b-icon-trash @click="hapusKeranjang(keranjang.id)"></b-icon-trash>
+                    <b-icon-trash
+                      @click="hapusKeranjang(keranjang.id)"
+                    ></b-icon-trash>
                   </td>
                 </tr>
                 <tr>
@@ -75,8 +87,33 @@
 
       <!-- form checkout -->
       <div class="row-justify-content-end">
+        <div class="col-md-4"></div>
+        <form class="mt-4 v-on:submit.prevent">
+          <div class="form-group">
+            <table for="nama">
+              Nama :
+            </table>
+            <input type="text" class="form-control" v-model="pesan.nama" />
+          </div>
 
-        
+          <div class="form-group">
+            <table for="noId_pelanggan">
+              Nomor ID Pelanggan :
+            </table>
+            <input
+              type="text"
+              class="form-control"
+              v-model="pesan.noId_pelanggan"
+            />
+          </div>
+          <button
+            type="submit"
+            class="btn btn-success float-right"
+            @click="checkout"
+          >
+            <b-icon-cart>Pesan</b-icon-cart>
+          </button>
+        </form>
       </div>
     </div>
   </div>
@@ -94,6 +131,7 @@ export default {
   data() {
     return {
       keranjangs: [],
+      pesan: [],
     };
   },
   methods: {
@@ -104,9 +142,9 @@ export default {
       axios
         .delete("http://localhost:3000/keranjangs" + id)
         .then(() => {
-          this.$toast.error('Sukses Hapus Keranjang', {
-            type: 'error',
-            position: 'top-right',
+          this.$toast.error("Sukses Hapus Keranjang", {
+            type: "error",
+            position: "top-right",
             duration: 5000,
             dismissible: true,
           });
@@ -118,7 +156,39 @@ export default {
             .catch((error) => console.log(error));
         })
         .catch((error) => console.log(error));
-    }
+    },
+    checkout() {
+      if (this.pesan.nama && this.pesan.noId_pelanggan) {
+        this.pesan.keranjangs = this.keranjangs;
+        axios
+          .post("http://localhost:3000/pesanans" + this.pesan)
+          .then(() => {
+
+
+            // hapus semua keranjang
+            this.keranjangs.map(function (item) {
+              return axios
+                .delete("http://localhost:3000/keranjangs" + item.id)
+                .catch((error) => console.log(error));
+            });
+            this.$router.push({ path: "/pesanan-sukses" });
+            this.$toast.success("Sukses Dipesan", {
+              type: "success",
+              position: "top-right",
+              duration: 5000,
+              dismissible: true,
+            });
+          })
+          .catch((err) => console.log(err));
+      } else {
+        this.$toast.error("Nama Dan nomor id pelanggan harus diisi", {
+          type: "error",
+          position: "top-right",
+          duration: 5000,
+          dismissible: true,
+        });
+      }
+    },
   },
   mounted() {
     axios
@@ -129,7 +199,7 @@ export default {
   computed: {
     totalHarga() {
       return this.keranjangs.reduce(function (items, data) {
-        return items + (data.products.harga * data.jumlah_pemesanan)
+        return items + data.products.harga * data.jumlah_pemesanan;
       }, 0);
     },
   },

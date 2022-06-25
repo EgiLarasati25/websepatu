@@ -11,9 +11,8 @@
       <div class="row mb-3">
         <div class="col">
           <div class="input-group mb-3">
-            
             <input
-            v-model="search"
+              v-model="search"
               type="text"
               class="form-control"
               placeholder="Cari Sepatu Kesukaan Anda"
@@ -58,7 +57,7 @@ export default {
   data() {
     return {
       products: [],
-      search: '',
+      search: "",
     };
   },
   methods: {
@@ -67,7 +66,7 @@ export default {
     },
     searchBarang() {
       axios
-        .get("http://localhost:3000/products?q="+this.search)
+        .get("http://localhost:3000/products?q=" + this.search)
         .then((response) => this.setProducts(response.data))
         .catch((error) => console.log(error));
     },
